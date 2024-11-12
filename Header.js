@@ -9,9 +9,6 @@ export default function Header() {
         style={styles.logo}
         source={require('./assets/Loanslogo.png')}
       />
-      
-      
-        
       </View>
      
   );
