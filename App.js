@@ -6,8 +6,7 @@ import Bankdetails from './Bankdetails';
 import Footer from './footer';
 export default function App() {
   return (
-    <View style={styles.container}>
-        
+    <View style={styles.container}>    
       
       <StatusBar style="auto" />
       <Header />

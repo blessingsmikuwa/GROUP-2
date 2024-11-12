@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, SafeAreaView} from 'react-native';
 import { MenuProvider, Menu, MenuOptions, MenuOption, MenuTrigger, } from 'react-native-popup-menu';
-
 export default function Header() {
   return (
      

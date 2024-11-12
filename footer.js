@@ -8,7 +8,6 @@ export default function Footer() {
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   footer: {
     height:70,
