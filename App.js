@@ -13,7 +13,6 @@ export default function App() {
       <Header />
      <Bankdetails />
      <Footer />
-     
     </View>
   );
 }
