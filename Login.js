@@ -75,7 +75,7 @@ export default function Login({ navigation }) {
           <Text style={tw`text-white text-center font-semibold`}>LOGIN</Text>
         </TouchableOpacity>
 
-        {/* Forgot Password and Register Links */}
+        {/* Forgot Password and Register Link */}
         <Text style={tw`mt-3 text-center`}>
           Don't have an account? <Text style={tw`text-blue-500`}>Register</Text>
         </Text>
