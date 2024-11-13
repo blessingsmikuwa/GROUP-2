@@ -26,7 +26,7 @@ export default function Login({ navigation }) {
         Alert.alert('Success', 'You are logged in!');
         navigation.navigate('MainScreen');
       } else {
-        // Show error message
+        // Show error messages
         Alert.alert('Login Failed', 'Invalid username or password');
       }
     } catch (error) {
