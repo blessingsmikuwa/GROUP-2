@@ -1,21 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import ContactDetailsForm from './ContactDetails';
+ import { StatusBar } from 'expo-status-bar';  
+import { StyleSheet, Text, View } from 'react-native';  
+import React from 'react';  
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <ContactDetailsForm/>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+import Header from './Header';  
+import Bankdetails from './Bankdetails';  
+import Footer from './footer';  
+import ContactDetailsForm from './ContactDetails';  
+
+export default function App() {  
+  return (  
+    <View style={styles.container}>  
+     
+      <ContactDetailsForm />  
+      <StatusBar style="auto" />  
+      <Header />  
+      <Bankdetails />  
+      <Footer />  
+    </View>  
+  );  
+}  
+
+const styles = StyleSheet.create({  
+  container: {  
+    flex: 1,  
+    backgroundColor: '#fff',  
+    alignItems: 'center',  
+    justifyContent: 'center',  
+  },  
+});  
