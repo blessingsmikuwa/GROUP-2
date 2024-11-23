@@ -5,6 +5,7 @@ import Bankdetails from './Bankdetails';
 import LandingPage from './LandingPage';
 import ContactDetailsForm from './ContactDetails'
 import AuthenticateForm from './Authentication';
+import PersonalDetailsForm from './Personaldetail';
 
 
 export default function App() {
@@ -12,7 +13,7 @@ export default function App() {
     <View style={styles.container}>
       
        
-        <AuthenticateForm />
+        <PersonalDetailsForm />
     </View>
    
   );
