@@ -1,11 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import { Text, TextInput, View, TouchableOpacity, Image, Alert } from 'react-native';
+import { Text, TextInput, View, TouchableOpacity, Image, Alert, AppState } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { useState } from 'react';
-import axios from 'axios';
 import tw from 'twrnc';
+import { supabase } from './lib/supabase';
 
-export default function Login({ navigation }) {
+AppState.addEventListener('change', (state) => {
+  if (state === 'active') {
+    supabase.auth.startAutoRefresh()
+  } else {
+    supabase.auth.stopAutoRefresh()
+  }
+})
+
+export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -14,25 +22,14 @@ export default function Login({ navigation }) {
     setShowPassword(!showPassword);
   };
 
-  const handleLogin = async () => {
-    try {
-      const response = await axios.post('https://128.0.0.1/login', {
-        username,
-        password
-      });
+  async function signInWithEmail() {
+    const { error } = await supabase.auth.signInWithPassword({
+      email: `${username}@unima.ac.mw`,
+      password: password,
+    })
 
-      if (response.data.success) {
-        // Navigate to the main screen or display a success message
-        Alert.alert('Success', 'You are logged in!');
-        navigation.navigate('MainScreen');
-      } else {
-        // Show error messages
-        Alert.alert('Login Failed', 'Invalid username or password');
-      }
-    } catch (error) {
-      Alert.alert('Error', 'Something went wrong. Please try again.');
-    }
-  };
+    if (error) Alert.alert('Login Failed', 'Invalid username or password')
+  }
 
   return (
     <View style={tw`flex-1 bg-white items-center justify-center`}>
@@ -45,7 +42,7 @@ export default function Login({ navigation }) {
         <View style={tw`flex-row items-center w-full p-3 mb-4 border border-gray-300 rounded`}>
           <FontAwesome name="user" size={20} color="gray" style={tw`mr-2`} />
           <TextInput
-            placeholder="Registration Number"
+            placeholder="bsc-com-99-99"
             value={username}
             onChangeText={setUsername}
             style={tw`flex-1`}
@@ -70,7 +67,7 @@ export default function Login({ navigation }) {
         {/* Login Button */}
         <TouchableOpacity
           style={tw`w-full bg-blue-600 p-3 rounded`}
-          onPress={handleLogin}
+          onPress={signInWithEmail}
         >
           <Text style={tw`text-white text-center font-semibold`}>LOGIN</Text>
         </TouchableOpacity>
