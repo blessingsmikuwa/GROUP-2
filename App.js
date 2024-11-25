@@ -35,10 +35,12 @@ export default function App() {
         />
         <Stack.Screen name="Profile" component={ProfileScreen} />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={AuthenticateForm} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

@@ -76,7 +76,7 @@ export default function Login({navigation}) {
         </TouchableOpacity>
 
         {/* Forgot Password and Register Link */}
-        <Text style={tw`mt-3 text-center`}>
+        <Text style={tw`mt-3 text-center`} onPress={navigation.navigate('Register')}>
           Don't have an account? <Text style={tw`text-blue-500`}>Register</Text>
         </Text>
 

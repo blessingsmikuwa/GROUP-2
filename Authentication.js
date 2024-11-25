@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image, Alert } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 
-const AuthenticateForm = () => {
+const AuthenticateForm = ({navigation}) => {
   const [registrationNumber, setRegistrationNumber] = useState('');
   const [selectedUniversity, setSelectedUniversity] = useState('');
 
@@ -10,6 +10,7 @@ const AuthenticateForm = () => {
     //  backend call ikhala pano
     if (!registrationNumber || !selectedUniversity) {
       Alert.alert('Error', 'Please fill in all fields');
+      navigation.navigate('Login');
       return;
     }
     Alert.alert(
