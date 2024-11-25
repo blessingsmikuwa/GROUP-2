@@ -13,7 +13,7 @@ AppState.addEventListener('change', (state) => {
   }
 })
 
-export default function Login() {
+export default function Login({navigation}) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -27,8 +27,11 @@ export default function Login() {
       email: `${username}@unima.ac.mw`,
       password: password,
     })
-
     if (error) Alert.alert('Login Failed', 'Invalid username or password')
+    const user = supabase.auth.getSession;
+    if (user) {
+      navigation.navigate('Profile', {name: 'Jane'})
+    }
   }
 
   return (
