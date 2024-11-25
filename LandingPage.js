@@ -16,7 +16,7 @@ const LandingPage = () => {
         {/* Header */}
         <View style={styles.header}>
           <Image
-            source={require('./assets/logo.png')} // You'll need to add your logo
+            source={require('./assets/Loanslogo.png')} // You'll need to add your logo
             style={styles.logo}
           />
           <View style={styles.headerButtons}>

@@ -1,24 +1,18 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-
-import Header from "./Header";
+//import Login from './Login';
 import Bankdetails from "./Bankdetails";
-import Footer from "./footer";
+import LandingPage from "./LandingPage";
 import ContactDetailsForm from "./ContactDetails";
+import AuthenticateForm from "./Authentication";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <ContactDetailsForm />
-      <StatusBar style="auto" />
-      <Header />
-      <Bankdetails />
-      <Footer />
+      <AuthenticateForm />
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
