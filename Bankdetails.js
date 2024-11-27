@@ -77,7 +77,6 @@ export default function Bankdetails() {
         setError('Loan amount details do not match.');
         return;
       }
-
       console.log('Verified');
     } catch (err) {
       setError('An unexpected error occurred. Please try again.');

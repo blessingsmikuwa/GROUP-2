@@ -35,7 +35,9 @@ export default function Login({navigation}) {
       email: `${username}@unima.ac.mw`,
       password: password,
     })
-    if (error) Alert.alert('Login Failed', 'Invalid username or password')
+    if (error) {Alert.alert('Login Failed', 'Invalid username or password')
+      return
+    }
     const user = supabase.auth.getSession;
     if (user) {
       navigation.navigate('Landing')
