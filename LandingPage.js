@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; // Assuming using Expo
 
-const LandingPage = () => {
+const LandingPage = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -21,7 +21,7 @@ const LandingPage = () => {
           />
           <View style={styles.headerButtons}>
             <TouchableOpacity style={styles.headerButton}>
-              <Text style={styles.headerButtonText}>Start Bonding</Text>
+              <Text style={styles.headerButtonText} onPress={() => {navigation.navigate('Personal')}}>Start Bonding</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.headerButton}>
               <Text style={styles.headerButtonText}>Bonding Guide</Text>

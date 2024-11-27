@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { Text, TextInput, View, TouchableOpacity, Image, Alert, AppState } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import tw from 'twrnc';
 import { supabase } from './lib/supabase';
+// import { useEffect } from 'react';
 
 AppState.addEventListener('change', (state) => {
   if (state === 'active') {
@@ -22,6 +23,13 @@ export default function Login({navigation}) {
     setShowPassword(!showPassword);
   };
 
+  // useEffect(() => {
+  //   const user = supabase.auth.getSession;
+  //   if (user) {
+  //     navigation.navigate('Landing')
+  //   }
+  // }, [])
+
   async function signInWithEmail() {
     const { error } = await supabase.auth.signInWithPassword({
       email: `${username}@unima.ac.mw`,
@@ -30,7 +38,7 @@ export default function Login({navigation}) {
     if (error) Alert.alert('Login Failed', 'Invalid username or password')
     const user = supabase.auth.getSession;
     if (user) {
-      navigation.navigate('Profile', {name: 'Jane'})
+      navigation.navigate('Landing')
     }
   }
 
@@ -38,7 +46,7 @@ export default function Login({navigation}) {
     <View style={tw`flex-1 bg-white items-center justify-center`}>
         <Image
         source={require('./assets/logo.jpg')}
-      />
+    />
       <View style={tw`w-4/5 max-w-sm p-6 bg-white border border-blue-500 rounded-lg shadow-lg items-center`}>
 
         {/* Username Field */}

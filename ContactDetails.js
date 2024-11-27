@@ -9,7 +9,7 @@ import {
   onPressHandler,
 } from "react-native";
 
-const ContactDetailsForm = () => {
+const ContactDetailsForm = ({navigation}) => {
   const [nextOfKin, setNextOfKin] = useState({
     fullName: "",
     email: "",
@@ -25,6 +25,7 @@ const ContactDetailsForm = () => {
     // Handle the next button logic here
     console.log("Next of Kin:", nextOfKin);
     console.log("Parental Details:", parentalDetails);
+    navigation.navigate('Loan')
   };
 
   return (
@@ -79,7 +80,7 @@ const ContactDetailsForm = () => {
         }
         keyboardType="phone-pad"
       />
-      <TouchableOpacity style={styles.button} onPress={onPressHandler}>
+      <TouchableOpacity style={styles.button} onPress={handleNext}>
         <Text style={styles.buttonText}>Next</Text>
       </TouchableOpacity>
     </View>

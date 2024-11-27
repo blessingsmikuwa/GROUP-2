@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 
-const PersonalDetailsForm = () => {
+const PersonalDetailsForm = ({navigation}) => {
   const [formData, setFormData] = useState({
     fullName: '',
     university: '',
@@ -17,6 +17,7 @@ const PersonalDetailsForm = () => {
 
   const handleNext = () => {
     console.log('Form Data:', formData);
+    navigation.navigate('Contact')
     //   navigation  here
   };
 
