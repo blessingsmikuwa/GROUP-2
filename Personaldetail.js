@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, Button, Image, StyleSheet, ScrollView, TouchableOpacity, Alert } from 'react-native';
 
-const PersonalDetailsForm = ({navigation}) => {
+const PersonalDetailsForm = ({ navigation }) => {
   const [formData, setFormData] = useState({
     fullName: '',
     university: '',
@@ -15,10 +15,27 @@ const PersonalDetailsForm = ({navigation}) => {
     setFormData({ ...formData, [key]: value });
   };
 
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   const handleNext = () => {
+    const { fullName, university, programOfStudy, nationalId, studentRegNumber, email } = formData;
+
+    if (!fullName || !university || !programOfStudy || !nationalId || !studentRegNumber || !email) {
+      Alert.alert('Validation Error', 'All fields are required.');
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      Alert.alert('Validation Error', 'Please enter a valid email address.');
+      return;
+    }
+
+    
     console.log('Form Data:', formData);
-    navigation.navigate('Contact')
-    //   navigation  here
+    navigation.navigate('Contact');
   };
 
   return (
